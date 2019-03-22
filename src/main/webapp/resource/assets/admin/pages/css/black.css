@@ -1,0 +1,190 @@
+body {
+    background-color: #FFFFFF;
+}
+
+.page-sidebar-wrapper .page-sidebar{
+    background-color: #3D3D3D;
+}
+.page-header.navbar {
+    background-color: #1E1E1E;
+    height: 60px;
+    min-height: 60px;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.page-header.navbar .page-logo {
+    height: 60px !important;
+    padding: 0px !important;
+    width: 400px !important;
+    margin: 0px !important;
+}
+.page-header.navbar .page-logo img{
+    height: 50px;
+}
+
+.page-header.navbar .page-logo .menu-toggler {
+    display: inline-block !important;
+    float: left !important;
+    margin: 25px 0 0 0px !important;
+}
+
+.page-header.navbar .page-logo .logo-toggler {
+    float: left !important;
+    padding-left: 5px !important;
+    margin: 0px !important;
+}
+
+.page-header.navbar .page-logo .logo-default {
+    margin: 5px 0 0 0 !important;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown {
+    height: 60px;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+    padding: 20px 6px 20px 8px;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle > img {
+    height: 45px;
+    margin-top: -14px;
+}
+
+.page-header .top-menu .dropdown-quick-sidebar-toggler > .dropdown-toggle {
+    padding: 20px 0px 20px 0px !important;
+}
+
+.page-header-fixed .page-container {
+    margin-top: 60px !important;
+}
+
+.page-sidebar .sidebar-toggler {
+    margin: 10px;
+}
+
+@media (min-width: 992px) {
+
+    .body-page {
+        padding: 0px 50px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .page-header-fixed .page-container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .page-header.navbar .menu-toggler.responsive-toggler {
+        margin: 16px 10px 20px 0px;
+    }
+
+    .body-page {
+        padding: 0px 20px !important;
+    }
+}
+
+@media (max-width: 525px) {
+    .page-header.navbar .page-logo {
+        width: 50px !important;
+    }
+
+    .page-header.navbar .page-logo .logo-toggler {
+        display: none !important;
+    }
+    .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+        background-color: #1E1E1E;
+    }
+    .page-header.navbar .top-menu {
+        background-color: #1E1E1E;
+        clear: none !important;
+    }
+
+    .body-page {
+        padding: 0px 10px !important;
+    }
+}
+
+.page-bar .page-breadcrumb > li > a.active {
+    font-weight: bold;
+    color: #D64635 !important;
+}
+
+.portlet .portlet-step, .portlet .portlet-title {
+    padding: 0px 10px;
+}
+
+.portlet .portlet-step .step-ul {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+    height: 50px;
+    background-color: #fff;
+    border-bottom: 1px solid #F4F4F4 !important;
+}
+
+.portlet .portlet-step .step-ul .step-li {
+    font-size: 14px;
+    color: #DCDBDB;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+
+.btn, .control-label, .input-group-addon, select, input, textarea {
+    font-size: 12px !important;
+}
+
+.portlet .portlet-step .step-ul .step-li span {
+    padding-bottom: 10px;
+    border-bottom: 5px solid #BDD5E4;
+}
+
+.portlet .portlet-step .step-ul .active span {
+    font-weight: bold;
+    color: #8F9091;
+    border-bottom: 5px solid #72B3D2;
+}
+
+.portlet .portlet-step .step-ul .step-li i {
+    padding-left: 20px;
+    width: 60px;
+}
+
+.portlet > .portlet-title > .caption {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-body {
+    font-size: 12px;
+}
+
+.form-horizontal {
+    padding-bottom: 0px;
+}
+
+.fa-text {
+    white-space:nowrap;
+    font-size: 12px !important;
+    color: #393F52!important;
+}
+.money{
+    font-weight: bold;
+    color: #D64635 !important;
+    padding-right: 5px;
+}
+
+#page-sidebar {
+    height: 100%;
+}
+
+.red {
+    background-color: #D64635 !important;
+}

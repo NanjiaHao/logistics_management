@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyc.dao.VehicleMapper" >
+  <resultMap id="BaseResultMap" type="com.cyc.pojo.Vehicle" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="vehicle_code" property="vehicleCode" jdbcType="VARCHAR" />
+    <result column="delivery_code" property="deliveryCode" jdbcType="VARCHAR" />
+    <result column="employee_code" property="employeeCode" jdbcType="VARCHAR" />
+    <result column="vehicle_status" property="vehicleStatus" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, vehicle_code, delivery_code, employee_code, vehicle_status, status, createTime, 
+    updateTime
+  </sql>
+  <select id="queryCarCount" resultType="java.lang.Long">
+    select count(1)
+    <include refid="Base_Column_List"/>
+  </select>
+
+  <select id="getCarList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from vehicle
+    order by id DESC limit #{index},#{limit}
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from vehicle
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from vehicle
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cyc.pojo.Vehicle" >
+    insert into vehicle (id, vehicle_code, delivery_code, 
+      employee_code, vehicle_status, status, 
+      createTime, updateTime)
+    values (#{id,jdbcType=INTEGER}, #{vehicleCode,jdbcType=VARCHAR}, #{deliveryCode,jdbcType=VARCHAR}, 
+      #{employeeCode,jdbcType=VARCHAR}, #{vehicleStatus,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cyc.pojo.Vehicle" >
+    insert into vehicle
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="vehicleCode != null" >
+        vehicle_code,
+      </if>
+      <if test="deliveryCode != null" >
+        delivery_code,
+      </if>
+      <if test="employeeCode != null" >
+        employee_code,
+      </if>
+      <if test="vehicleStatus != null" >
+        vehicle_status,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="vehicleCode != null" >
+        #{vehicleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryCode != null" >
+        #{deliveryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCode != null" >
+        #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleStatus != null" >
+        #{vehicleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cyc.pojo.Vehicle" >
+    update vehicle
+    <set >
+      <if test="vehicleCode != null" >
+        vehicle_code = #{vehicleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryCode != null" >
+        delivery_code = #{deliveryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeCode != null" >
+        employee_code = #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="vehicleStatus != null" >
+        vehicle_status = #{vehicleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cyc.pojo.Vehicle" >
+    update vehicle
+    set vehicle_code = #{vehicleCode,jdbcType=VARCHAR},
+      delivery_code = #{deliveryCode,jdbcType=VARCHAR},
+      employee_code = #{employeeCode,jdbcType=VARCHAR},
+      vehicle_status = #{vehicleStatus,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

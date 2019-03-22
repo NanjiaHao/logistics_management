@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyc.dao.AttendanceRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.cyc.pojo.AttendanceRecord" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="emp_id" property="empId" jdbcType="INTEGER" />
+    <result column="emp_code" property="empCode" jdbcType="VARCHAR" />
+    <result column="attendance_time" property="attendanceTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, emp_id, emp_code, attendance_time, status, createTime, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from attendance_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="queryAttendCount" resultType="java.lang.Long">
+    select count(1)
+    <include refid="Base_Column_List"/>
+    from attendance_record
+  </select>
+
+  <select id="getRecords" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from attendance_record
+    where status=1
+    <if test="empCode!=null and empCode!=''">
+     and emp_code = #{empCode,jdbcType=VARCHAR}
+  </if>
+    order by id DESC LIMIT #{index},#{limit}
+  </select>
+
+  <select id="getRecordByEmpCode" resultMap="BaseResultMap" parameterType="Map" >
+    select
+    <include refid="Base_Column_List" />
+    from attendance_record
+    where status =1
+    <if test="empCode!=null and empCode!=''">
+      and emp_code = #{empCode,jdbcType=VARCHAR}
+    </if>
+    and attendance_time &gt; #{beginTime}
+    and attendance_time &lt; #{endTime}
+    group by id DESC
+    limit 1
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from attendance_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cyc.pojo.AttendanceRecord" >
+    insert into attendance_record (id, emp_id, emp_code, 
+      attendance_time, status, createTime, 
+      updateTime)
+    values (#{id,jdbcType=INTEGER}, #{empId,jdbcType=INTEGER}, #{empCode,jdbcType=VARCHAR}, 
+      #{attendanceTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cyc.pojo.AttendanceRecord" >
+    insert into attendance_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="empId != null" >
+        emp_id,
+      </if>
+      <if test="empCode != null" >
+        emp_code,
+      </if>
+      <if test="attendanceTime != null" >
+        attendance_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="empId != null" >
+        #{empId,jdbcType=INTEGER},
+      </if>
+      <if test="empCode != null" >
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="attendanceTime != null" >
+        #{attendanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cyc.pojo.AttendanceRecord" >
+    update attendance_record
+    <set >
+      <if test="empId != null" >
+        emp_id = #{empId,jdbcType=INTEGER},
+      </if>
+      <if test="empCode != null" >
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="attendanceTime != null" >
+        attendance_time = #{attendanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cyc.pojo.AttendanceRecord" >
+    update attendance_record
+    set emp_id = #{empId,jdbcType=INTEGER},
+      emp_code = #{empCode,jdbcType=VARCHAR},
+      attendance_time = #{attendanceTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

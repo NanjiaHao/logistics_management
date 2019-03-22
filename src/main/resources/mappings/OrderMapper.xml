@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyc.dao.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.cyc.pojo.Order" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="order_code" property="orderCode" jdbcType="VARCHAR" />
+    <result column="emp_code" property="empCode" jdbcType="VARCHAR" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="shipping_address" property="shippingAddress" jdbcType="VARCHAR" />
+    <result column="shipping_fee" property="shippingFee" jdbcType="DECIMAL" />
+    <result column="order_amount" property="orderAmount" jdbcType="DECIMAL" />
+    <result column="user_note" property="userNote" jdbcType="VARCHAR" />
+    <result column="expTime" property="exptime" jdbcType="TIMESTAMP" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, order_code, emp_code, user_code, nick_name, shipping_address, shipping_fee, order_amount, 
+    user_note, expTime, goods_name, status, createTime, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from `order`
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="queryOrderCount" resultType="java.lang.Long">
+    select count(1)
+    <include refid="Base_Column_List"/>
+    from `order`
+  </select>
+
+  <select id="getOrdersByparams" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List"/>
+  from `order` where status = 1
+  <if test="userCode!=null and userCode!=''">
+    and user_code = #{userCode,jdbcType=VARCHAR}
+  </if>
+  <if test="empCode!=null and empCode!=''">
+    or emp_code = #{empCode,jdbcType=VARCHAR}
+  </if>
+  order by id DESC limit #{index},#{limit}
+</select>
+
+  <select id="selectByOrderCode"  resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List"/>
+  from `order`
+    where order_code = #{orderCode,jdbcType=VARCHAR}
+</select>
+
+  <select id="selectByEmpCode"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from `order`
+    where emp_code = #{empCode,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from `order`
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cyc.pojo.Order" >
+    insert into `order` (id, order_code, emp_code,
+      user_code, nick_name, shipping_address, 
+      shipping_fee, order_amount, user_note, 
+      expTime, goods_name, status, 
+      createTime, updateTime)
+    values (#{id,jdbcType=BIGINT}, #{orderCode,jdbcType=VARCHAR}, #{empCode,jdbcType=VARCHAR}, 
+      #{userCode,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{shippingAddress,jdbcType=VARCHAR}, 
+      #{shippingFee,jdbcType=DECIMAL}, #{orderAmount,jdbcType=DECIMAL}, #{userNote,jdbcType=VARCHAR}, 
+      #{exptime,jdbcType=TIMESTAMP}, #{goodsName,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cyc.pojo.Order" >
+    insert into `order`
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderCode != null" >
+        order_code,
+      </if>
+      <if test="empCode != null" >
+        emp_code,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="shippingAddress != null" >
+        shipping_address,
+      </if>
+      <if test="shippingFee != null" >
+        shipping_fee,
+      </if>
+      <if test="orderAmount != null" >
+        order_amount,
+      </if>
+      <if test="userNote != null" >
+        user_note,
+      </if>
+      <if test="exptime != null" >
+        expTime,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderCode != null" >
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empCode != null" >
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingAddress != null" >
+        #{shippingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingFee != null" >
+        #{shippingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="orderAmount != null" >
+        #{orderAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="userNote != null" >
+        #{userNote,jdbcType=VARCHAR},
+      </if>
+      <if test="exptime != null" >
+        #{exptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cyc.pojo.Order" >
+    update `order`
+    <set >
+      <if test="orderCode != null" >
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empCode != null" >
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingAddress != null" >
+        shipping_address = #{shippingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingFee != null" >
+        shipping_fee = #{shippingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="orderAmount != null" >
+        order_amount = #{orderAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="userNote != null" >
+        user_note = #{userNote,jdbcType=VARCHAR},
+      </if>
+      <if test="exptime != null" >
+        expTime = #{exptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goodsName != null" >
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cyc.pojo.Order" >
+    update `order`
+    set order_code = #{orderCode,jdbcType=VARCHAR},
+      emp_code = #{empCode,jdbcType=VARCHAR},
+      user_code = #{userCode,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      shipping_address = #{shippingAddress,jdbcType=VARCHAR},
+      shipping_fee = #{shippingFee,jdbcType=DECIMAL},
+      order_amount = #{orderAmount,jdbcType=DECIMAL},
+      user_note = #{userNote,jdbcType=VARCHAR},
+      expTime = #{exptime,jdbcType=TIMESTAMP},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

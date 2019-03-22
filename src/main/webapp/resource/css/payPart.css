@@ -1,0 +1,930 @@
+	
+html,body{
+	background: #e9ecf3;
+	font-family: "寰蒋闆呴粦";
+	font-size: 16px;    	
+}
+ul,dl,ol{
+  list-style: none;	
+  margin:0;
+  padding: 0;
+}
+a{
+  text-decoration: none;		
+}
+a:hover{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#header{
+	height:75px;
+	width:100%;
+	background: #FFFFFF;
+	position:fixed;	
+}
+.clear{
+	width:100%;
+	height:75px;
+}
+.row{
+	display: flex;
+	 height: 75px;
+     width: 100%;
+}
+.logo{
+	width: 15%;
+    margin-left: 8%;
+    line-height: 75px;
+    margin-top: 1%;
+}
+.icon,.icons {
+  display: inline-block;
+}
+.logoIcon {
+	width: 100%;  
+  background: url(../image/logo_03.png) no-repeat;
+  background-size: 80%;
+   height: 75px;
+}
+.userPart{
+	  display:flex;
+		width: 10%;
+		position: absolute;
+		right: 10%;
+}
+.userName{
+	    margin-right: 12%;
+    line-height: 75px;
+    color:#87b6dd;
+}
+.userImg{
+  	width: 40px;
+    height: 41px;
+    margin-top: 5%;
+}
+/*渚ц竟鏍忔牱寮�*/
+#catalogue{
+	background-color: #FFFFFF;
+    margin: 1% 2% 0% 2%;
+width: 20%;
+text-align: center;
+border-radius: 5px;
+}
+
+.catalogueList-item{
+	position: relative;
+	height: 48px;
+	box-sizing: border-box;
+	margin-bottom:10px;
+	border-left:5px solid #FFFFFF;
+}
+.catalogueList-item:hover{
+	background-color: #f2f6f9;
+	border-left:5px solid #5b9bd1;
+	box-sizing: border-box;
+	 cursor: pointer;
+}
+.catalogueList-item p{
+	font-size: 18px;
+}
+.leftPart{
+	display:flex;
+	position: relative;
+}
+.labels{
+	line-height: 48px;
+}
+.icons{
+    width: 26px;
+    height: 26px;
+}
+
+.PRMaingIcon{
+	background: url(../image/PRMainIcon_03.png) no-repeat;
+	background-size: 100%;
+
+}
+.listIcon{
+		margin: 5%;
+}
+.addIcon{
+	background: url(../image/addIcon_03.png) no-repeat;
+	background-size: 70%;
+  position: absolute;
+	right: 0%;
+	top: 29%;
+}
+.degreeIcon{
+	background: url(../image/delIcon_03.png)no-repeat;
+	background-size: 70%;
+  position: absolute;
+	right: 0%;
+	top: 29%;
+}
+.xialaList{
+    position: absolute;
+    top: 3%;
+    left: 0%;
+    width: 100%;
+    background: #FFFFFF;
+}
+.xialaList-item{
+    display: flex;
+    height: 42px;
+    line-height: 42px;
+    cursor:pointer;
+}
+.xialaList-item:hover{
+	 background-color: #f2f6f9;
+	  cursor: pointer;
+}
+.xialaList-item p{
+	font-size: 16px;
+}
+.painters{
+    width: 100%;
+    position: relative;
+    background: #fff;
+    margin-top: -4%;
+}
+.newPayIcon{
+	background: url(../image/newIcon_03.png) no-repeat;
+	    background-size: 82%;
+    margin-top: 3%;
+    margin-right: 3%;
+        margin-left: 38px;
+}
+.selePayIcon{
+	background: url(../image/selectIcon_06.png) no-repeat;
+   background-size: 82%;
+	margin-top: 3%;
+	margin-right: 3%;
+    margin-left: 38px;
+}
+.panel-default>.panel-heading{
+  background: #FFFFFF;
+}
+.panel-heading{
+	padding: 0;
+}
+.panel-group{
+	margin:0;
+}
+.panel-default{
+	border:0;
+}
+.panel-group .panel-heading+.panel-collapse>.panel-body{
+	border: 0;
+}
+
+/*鍙充晶涓婚閮ㄥ垎鏍峰紡*/
+.containers{	
+    width: 78%;   
+}
+#main{
+	width:70%;
+	box-sizing: border-box;
+}
+.top{
+	display: flex;
+	height: 40px;
+	background-color: #FFFFFF;
+    margin-top: 14px;
+	border-radius: 4px;
+	width: 100%;
+  line-height: 40px;
+  padding-left: 20px;
+  color:#5b9bd1;
+  font-size: 14px;
+}
+.top li{
+	 margin-right: 10px;
+}
+.top li:first-child{
+	  border-left: 5px solid #5b9bd1;
+    height: 20px;
+    margin-top: 10px;
+    margin-right: 6px;
+ }
+/*涓讳綋閮ㄥ垎鏍峰紡*/
+#section{
+	background-color: #FFFFFF;
+	margin-top: 1%;
+	width:99%;
+}
+.title{
+	 display: flex;
+}
+.verticalBar{
+    border-left: 6px solid #4db3a4;
+    border-radius: 2px;
+    height: 14px;
+    margin-top: 36px;
+    margin-left: 33px;
+}
+.title p{
+	    margin-top: 32px;
+      margin-left: 10px;
+      font-size: 14px;
+}
+.formPart{
+	background-color: #FFFFFF;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-top:10px;
+	text-align: center;
+}
+.items,.tips{
+	width:33.333%;
+	font-size: 12px;
+	color:#666666;
+	margin-bottom: 20px;
+}
+.items input,.appliSatus{
+	width:165px;
+	height:24px;
+}
+.items .appliInput1,.items .appliInput2{
+	width:106px;
+	height:24px;
+}
+.formPart .items:last-child{
+	width:66.66%;
+	text-align: left;
+	position:relative;
+}
+
+#print{
+    width: 16px!important;
+    position: absolute;
+    top: 0;
+    left: 286px;
+    height: 16px;
+}
+.printTips{
+	margin-left: 40px;
+}
+.selectBtn{
+	float: right;
+	background-color: #3db2d4;
+	color:#FFFFFF;
+    margin-right: 16px;
+    border-radius: 0;
+}
+.selectBtn:hover{
+	color:#FFFFFF;
+	cursor:pointer;
+}
+.litFunc{
+    position: absolute;
+    top: 38px;
+    right: 20px;
+    display: flex;
+    font-size: 14px;
+
+}
+.litFunc-item{
+	margin-right: 16px;
+	cursor: pointer;
+}
+.fontIcon{
+	display: inline-block;
+	width:18px;
+	height:18px;
+	vertical-align: middle;
+}
+.dyjIcon{
+	background: url('../image/dyjIcon_03.png') no-repeat;
+	background-size: 90%;
+}
+.copyIcon{
+	background: url('../image/copyIcon_03.png') no-repeat;
+	background-size: 90%;
+}
+.modifyIcon{
+	background: url('../image/modifyIcon_03.png') no-repeat;
+	background-size: 90%;
+}
+.deleteIcon{
+	background: url('../image/deleteIcon_03.png') no-repeat;
+	background-size: 90%;
+}
+.newAddIcon{
+	background: url('../image/newAddIcon_03.png') no-repeat;
+	background-size: 90%;
+}
+.afordName{
+	margin-left: 3.2rem;
+}
+/*琛ㄦ牸鏍峰紡*/
+#queryTable{
+	border:0;
+	width:100%;
+	margin-top: 10px;
+}
+#queryTable th{
+	text-align: center;
+	
+}
+#queryTable,tr,th,td{
+	border:0;
+}
+#queryTable th,#queryTable td{
+	font-size: 12px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.closeIcon{
+  cursor: pointer;
+}
+@media only screen and (max-width:767px ) {
+	html,body{
+		font-size: 14px;
+	}
+	.logo{
+		line-height: 2rem;
+		width: 22%;
+		margin-top: 24px;
+	}
+	.userImg{
+		margin-top: 1rem;
+	}
+	#catalogue{
+		width: 24%;
+	}
+	.listIcon{
+		margin: 1rem;
+	}
+	.newPayIcon{
+		margin-top: 0.8rem;
+	}
+	.items input{
+		 width: 100px;
+	}
+	.items .appliInput1, .items .appliInput2{
+		width:44px;
+	}
+	.items input, .appliSatus{
+		width:100px;
+	}
+	.afordName{
+		margin-left: 11px;
+	}
+	#print{
+		left: 180px;
+	}
+	.selectBtn{
+		 margin-right: 3px;
+	    height: 2rem;
+	    line-height: 1rem;
+	}
+	.verticalBar{
+		margin-top: 2rem;
+    	margin-left: 2rem;
+	}
+	.litFunc{
+		right: -11px;
+    	font-size: 12px;
+	}
+}
+/*鍒嗛〉閮ㄥ垎鏍峰紡*/
+.pageNum{
+	background-color: #fff;
+	padding-bottom: 14px;
+	font-size: 12px;
+}
+.pageList{
+	display:flex;
+	margin:10px;
+	margin-bottom: 0;
+	    justify-content: flex-end;
+	    padding-top: 10px;
+}
+.pageList-item{
+	margin-right: 10px;
+}
+.pageList-item input{
+	width: 68px;
+    margin: 0 10px;
+}
+.pageList-item select{
+	width: 60px;
+    margin: 0 10px;
+}
+.pageList-item .jumpBtn{
+	background-color: #f36a5a;
+	width:56px;
+	color: #fff;
+}
+/*寮瑰嚭妗嗘牱寮�*/
+/*渚涘簲鍟嗙鐞嗗脊妗�*/
+.afordNameBox,.invoiceBox,.bsPayInfoBox,.fileBox{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.afordNameMask,.invoiceMask,.fileMask,.bsPayInfoMask{
+	position: absolute;
+    top: 0;
+    left: 0 ;
+    width:100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.5;
+    transform: translateX(-24%) translateY(-37%);
+    width: 132%;
+    height: 200%;
+}
+.afordNameContainer,.invoiceContainer,.fileContainer{
+	width:700px;
+    height: 600px;
+    background-color: #fff;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-350px) translateY(-300px)
+}
+.pingtai{
+	line-height: 4.2;
+    margin-left: 2rem;
+    font-size: 14px;
+    color: #747474;
+  }
+  .closeBtn{
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    font-weight: bold;	
+    cursor: pointer;
+  }
+  .middlePart{
+  	margin:0 30px;
+  	border-bottom:1px solid #DDDDDD;
+  	font-size: 14px;
+  	color:#676767;
+  	padding: 5% 0;
+    box-sizing: border-box;
+     height: 110px;
+  }
+  .middlePart div:first-child{
+  	 margin-right: 45px;
+  	}
+  .selectTBtn{
+  	 float: right;
+  	 background-color: #3BC841;
+  	 color:#FFFFFF;
+  	    
+  	}
+  	.selectTBtn:hover{
+  	  color:#FFFFFF	;
+  	  cursor: pointer;
+  	}
+  	.footer{
+  		position: fixed;
+	    bottom: 4%;	    
+	    width: 100%;
+	    height: 2rem;
+	 }
+	 .saveBtn ,.quitBtn,.uploaderBtn,.close_Btn{
+	 	position: fixed;
+	 	left: 33%;
+	    background-color: #44b3ff;
+	    color: #fff;
+	    width:100px;	    
+	}
+	.saveBtn:hover,.quitBtn:hover,.close_Btn:hover,.uploaderBtn:hover{
+		color:#FFFFFF;
+		 cursor: pointer;
+	} 
+	.quitBtn,.close_Btn{
+	   left:50%;	
+	   background-color: #cdded5;
+	}
+	/*鍙戠エ寮规鏍峰紡*/
+	.invoicePart{
+	  margin:10px 38px;	
+	}
+	.invoicePart-item{
+	  display:flex;
+	   margin-top: 42px;
+	  color:#666;
+	  font-weight: normal;
+	  
+	}
+	.invoicePart-item label{
+	 margin-right: 5%;
+	 font-weight: normal;
+	}
+	.invoicePart-item p{
+	  margin-right: 10%;	
+      color: #676767;
+      font-size: 14px;
+	}
+	.invoicePart-item p span{
+	  color:#f12121;
+	}
+	.invoicePart-item input[type="radio"]{
+	    width: 16px;
+    	height: 16px;
+    	margin-right:10px;
+	}
+	.invoTips,.fileTips{
+	    width: 66%;
+	    resize: none;
+	    height: 130px;
+	}
+	.canlenerInput{
+	    width: 34%;
+    	padding: 4px;
+    	padding-right: 30px;
+	}
+	.canlenerIcon{
+	  background: url(../image/canlener.png) no-repeat;
+	  background-size: 100%;
+	  position:absolute;
+      right: 249px;
+	  top: 3px;
+	}
+	/*鏂囦欢绠＄悊*/
+	.filePart{
+	  margin:30px 38px;
+	}
+	.filePart-item{
+		display: flex;
+	}
+	.viewPart{
+    	    width: 80%;
+    margin-left: 10px;
+    height: 36px;
+
+	}
+	.file_tips{
+		margin: 30px 0;
+    	margin-left: 69px;
+	}
+	.uploadFile{
+	    position: absolute;
+	    top: 82px;
+    	left: 100px;
+    	opacity: 0;
+    	width: 72%;
+    	z-index: 10;
+	}
+	.scanFile{
+	    position: absolute;
+	    right: 94px;
+	    top: 81px;
+	    height: 34px;
+	    line-height: 20px;
+	    background-color: #ddd;
+	    padding: 10px;
+	}
+	.uploadRecord{
+		margin-top: 83px;
+	}
+	.uploadRecList-item{
+		height: 40px;
+		line-height: 40px;
+		font-size: 12px;
+		    display: flex;
+    justify-content: space-around;
+	}
+	.uploadRecList-item:hover{
+	  background-color: #f6fbfc;
+	   cursor: pointer;
+	}
+	.uploadIcon{
+		background: url(../image/egIcon1_03.png) no-repeat;
+		background-size: 74%;
+		vertical-align: middle;
+		vertical-align: -webkit-baseline-middle;
+	}	
+	
+/*纭浠樻淇℃伅鏍峰紡*/
+.bsPayInfoContainer{
+	width:550px;
+   /* height: 600px;*/
+    background-color: #fff;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-225px) translateY(-300px);
+}
+.remindTitle{
+	margin-top: 70px;
+	font-size: 20px;
+	color:#44b2ff;
+	text-align: center;
+}
+.bsPayList{
+	margin:44px;
+}
+.bsPayList-item p{
+    font-size: 14px;
+    color: #999999;
+    height: 44px;
+    line-height: 44px;
+}
+.bsPayList-item p>span{
+	color:#333333;
+}
+.warnIcon{
+	background: url(../image/warningIcon_03.png)no-repeat;
+	background-size: 90%;
+	vertical-align: middle;
+}
+.bsBtn{
+	background-color: #4bb3fc;
+	margin-left: 40%;
+    margin-top: 20px;
+    width: 22%;
+    color:#FFFFFF;
+}
+.bsBtn:hover{
+	color:#FFFFFF;
+	 cursor: pointer;
+}
+
+@media only screen and (min-width: 769px) and (max-width:992px) {
+	html,body{
+		font-size: 14px;
+	}
+	.logo{
+		line-height: 2rem;
+		width: 22%;
+		margin-top: 24px;
+	}
+	.userImg{
+		margin-top: 1rem;
+	}
+	#catalogue{
+		width: 24%;
+	}
+	.listIcon{
+		margin: 1rem;
+	}
+	.newPayIcon{
+		margin-top: 0.8rem;
+	}
+	.items input{
+		 width: 100px;
+	}
+	.items .appliInput1, .items .appliInput2{
+		width:44px;
+	}
+	.items input, .appliSatus{
+		width:100px;
+	}
+	.afordName{
+		margin-left: 11px;
+	}
+	#print{
+		left: 15rem;
+	}
+	.selectBtn{
+		 margin-right: 3px;
+	    height: 2rem;
+	    line-height: 1rem;
+	}
+	.verticalBar{
+		margin-top: 2rem;
+    	margin-left: 2rem;
+	}
+	.litFunc{
+		right: -11px;
+    	font-size: 12px;
+	}
+	.pageList-item input{
+		width:38px;
+	}
+}
+@media only screen and (min-width:992px ) and (max-width:1024px) {
+	body{
+		font-size: 16px;
+	}
+	.userImg{
+		margin-top: 1.2rem;
+	}
+	.logo{
+		line-height: 2rem;
+		width: 22%;
+		margin-top: 24px;
+	}
+	#catalogue{
+		width: 24%;
+	}
+	.listIcon{
+		margin: 1rem;
+	}
+	.newPayIcon{
+		margin-top: 0.8rem;
+	}
+	.items input{
+		 width: 110px;
+	}
+	.items .appliInput1, .items .appliInput2{
+		    width: 72px;
+	}
+	.items input, .appliSatus{
+		width:110px;
+	}
+	.afordName{
+		margin-left: 38px;
+	}
+	#print{
+		left: 208px;
+	}
+	.selectBtn{
+	    margin-right: 0.7rem;
+	    height: 2rem;
+	    line-height: 1rem;
+	}
+	.verticalBar{
+		margin-top: 2rem;
+    	margin-left: 2rem;
+	}
+	.litFunc{
+		right: -11px;
+    	font-size: 12px;
+	}
+	.pageList-item input{
+		width:38px;
+	}
+}
+ @media (min-width: 1024px){
+    body{font-size: 16px}
+    } /*>=1024鐨勮澶�*/
+   .userImg{
+		margin-top: 1.2rem;
+	}
+	.logo{
+		line-height: 2rem;
+		width: 22%;
+		margin-top: 24px;
+	}
+	#catalogue{
+	    width: 19%;
+	}
+	.listIcon{
+		margin: 1rem;
+	}
+	.newPayIcon{
+		margin-top: 0.8rem;
+	}
+	.afordName{
+		/*margin-left: 50px;*/
+		margin-left:13%;
+	}
+	#print {
+    /*left: 280px;*/
+    left:39%;
+	}
+	.selectBtn{
+	    margin-right: 0.7rem;
+	    height: 2rem;
+	    line-height: 1rem;
+	}
+	.verticalBar{
+		margin-top: 2rem;
+    	margin-left: 2rem;
+	}
+	.litFunc{
+		right: -11px;
+    	font-size: 12px;
+	}
+	.pageList-item input{
+		width:38px;
+	}
+}
+
+@media (min-width: 1366px) {
+	body{font-size: 16px;}
+	#print {
+    	left: 307px;
+	}
+	.afordName {
+    margin-left: 79px;
+	}
+	.logoIcon {
+	    width: 100%;
+	    background: url(../image/logo_03.png) no-repeat;
+	    background-size: 80%;
+	    height: 75px;
+  }
+}  
+
+@media (min-width: 1440px) {
+	body{font-size: 16px !important;}
+	#print {
+/*     	left: 307px; */
+	}
+	.afordName {
+    	margin-left:6rem;
+	}
+	.logoIcon {
+    width: 100%;
+    background: url(../image/logo_03.png) no-repeat;
+    background-size: 60%;
+    height: 75px;
+   }
+	
+} 
+
+@media (min-width: 1680px) {
+	body{font-size: 16px;}
+	#print {
+    	left: 307px;
+	}
+	.afordName {
+      margin-left: 79px;
+	}
+} 
+@media (min-width: 1920px) {
+	body{font-size: 16px;}
+	#print {
+     left: 307px;
+	}
+	.afordName {
+      margin-left: 79px;
+	}
+} 
+/*椤甸潰鍒嗛〉鏍峰紡*/
+.pager {
+    padding-left: 0px;
+    text-align: right;
+    margin: 20px 0px;
+    list-style: none;
+    padding:0 1rem 2rem 0;
+}
+.pageNumBox{
+     display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    margin-top: 3%;	
+}
+.pageNumBox-item{
+	border: 1px solid #ddd;
+    background: #EFEFEF;
+    color: #333333;
+    margin: 0 0.5%;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+        height: 34px;
+}
+.numActive{
+ color:#FF0000!important;
+ background-color: #FFFFFF;
+ border:none;
+}
+#providerName{
+ cursor: pointer;
+}
+.tableExel{
+	height: 370px;
+    overflow: auto;
+}
+.ng-pagination {
+  font-family: 'Microsoft YaHei';
+  font-size: 12px;
+  color: #337ab7;
+}
+
+.ng-pagination>ul {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.ng-pagination>ul>li {
+  padding: 6px 12px;
+  margin-right: 5px;
+  border: 1px solid #ddd;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.ng-pagination>ul>li:hover,
+.ng-pagination>ul>li.active {
+  background-color: #eee;
+  color: #23527c;
+}
+
+.ng-pagination input {
+  margin-left: 2px;
+  width: 30px;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+  vertical-align: 1px;
+  text-align: center;
+  padding: 6px 3px;
+}

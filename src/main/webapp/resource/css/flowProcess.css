@@ -1,0 +1,214 @@
+#process:after{ content:''; display: block; clear: both; }
+
+.page-container {
+    max-width: 830px !important;
+    margin: 0 auto !important;
+    overflow:hidden;
+}
+.container-fluid .row-fluid{ display: none; }
+
+
+
+#process .node, #process .proce, #process .maltinode, #process .subflow{ 
+    margin:10px 0 !important;float: left;
+	position: relative;
+	height: 20px;
+	background-image:url(/images/PhaseMap.png);
+	background-repeat: no-repeat;
+    margin-top:50px;
+}
+#process .node, #process .proce {
+	
+}
+
+#process .node {
+	width: 22px;
+	width: 22px\9;
+}
+#process .maltinode {
+	width: 30px;
+	width: 22px\9;
+}
+#process .subflow {
+	width: 30px;
+	width: 22px\9;
+}
+#process .proce {
+	width: 150px;
+	width: 160px\9;
+	border: solid #fff;
+	border-width: 0 5px;
+}
+
+#process .tx1 {
+	height: 0px;
+	margin-bottom: 0px;
+}
+
+#process .tx3 {
+	/*color: #999;*/
+	line-height: 15px;
+	font-size: 13px;
+}
+
+#process .tx2 {
+	line-height: 44px;
+	font-size: 13px;
+}
+
+#process .tx6 {
+	line-height: 40px;
+	font-size: 13px;
+}
+
+#process .tx5 {
+	line-height: 5px;
+	font-size: 13px;
+}
+
+.node.doing {
+	background-position: -150px -20px;
+}
+
+.node.wait {
+	background-position: -150px -40px;
+}
+
+.node.ready {
+	background-position: -150px 0px;
+}
+.maltinode.doing {
+	background-position: -88px -77px;
+}
+.subflow.doing {
+	background-position: -444px -47px;
+}
+.maltinode.wait {
+	background-position: -46px -77px;
+}
+.subflow.wait {
+	background-position: -444px -80px;
+}
+.maltinode.ready {
+	background-position:-300px -18px;
+}
+.subflow.ready {
+	background-position:-444px 8px;
+}
+.node.singular {
+	background-position: -150px -60px;
+}
+
+.node.stageready {
+	background-position: -90px -79px;
+}
+
+.node.stagedoing {
+	background-position: -90px -79px;
+}
+
+.node.stagewait {
+	background-position: -50px -78px;
+}
+
+.node.stagesingular {
+	/* background-position:  -106px -82px;*/
+	background-position: -150px -60px;
+}
+
+.proce.wait {
+	background-position: 0 -40px;
+}
+
+.proce.doing {
+	background-position: 0 -22px;
+	/* color: #360;*/
+}
+
+.proce.ready {
+	background-position: 0 -0px;
+}
+
+#process .wait .tx2 {
+	/*color: #999;*/
+	font-size: 13px;
+}
+
+#process .stagewait .tx2 {
+	/*color: #999;*/
+	font-size: 13px;
+}
+
+#process ul {
+	position: absolute;
+	text-align: center;
+}
+
+#process .proce ul {
+	z-index: 5;
+	width: 150px;
+}
+#process ul li {
+	list-style-type:none;
+}
+#process .node ul {
+	z-index: 1;
+	width: 218px;
+	margin-left: -100px;
+}
+#process .maltinode ul {
+	z-index: 1;
+	width: 318px;
+	margin-left: -152px;
+}
+#process .subflow ul {
+	z-index: 1;
+	width: 318px;
+	width: 300px\9;
+	margin-left: -152px;
+}
+* html #process {
+	overflow: visible;
+	padding: 5px 0 30px 0px;
+}
+
+* html #process .node {
+	background-position-x: -150px;
+}
+
+* html #process .proce {
+	background-position-x: 0;
+}
+
+* html #process .wait {
+	background-position-y: -40px;
+}
+
+* html #process .doing {
+	background-position-y: -20px;
+}
+
+* html #process .ready {
+	background-position-y: 0;
+}
+
+* html #process .singular {
+	background-position-y: -60px;
+}
+
+* html #process .stageready {
+	background-position-x: -90px;
+}
+
+* html #process .stagedoing {
+	background-position-x: -90px;
+}
+
+* html #process .stagewait {
+	background-position-x: -50px;
+}
+
+* html #process .stagesingular {
+	/*background-position-x: -103px;*/
+	background-position-x: -150px;
+}

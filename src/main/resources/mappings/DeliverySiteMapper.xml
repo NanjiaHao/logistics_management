@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyc.dao.DeliverySiteMapper" >
+  <resultMap id="BaseResultMap" type="com.cyc.pojo.DeliverySite" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="delivery_code" property="deliveryCode" jdbcType="VARCHAR" />
+    <result column="delivery_address" property="deliveryAddress" jdbcType="VARCHAR" />
+    <result column="operate_status" property="operateStatus" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, delivery_code, delivery_address, operate_status, status, createTime, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from delivery_site
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="queryPointCount" resultType="java.lang.Long">
+    select count(1)
+    <include refid="Base_Column_List"/>
+    from delivery_site
+  </select>
+
+  <select id="getPointList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from delivery_site
+    order by id DESC limit #{index},#{limit}
+  </select>
+
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from delivery_site
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cyc.pojo.DeliverySite" >
+    insert into delivery_site (id, delivery_code, delivery_address, 
+      operate_status, status, createTime, 
+      updateTime)
+    values (#{id,jdbcType=INTEGER}, #{deliveryCode,jdbcType=VARCHAR}, #{deliveryAddress,jdbcType=VARCHAR}, 
+      #{operateStatus,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cyc.pojo.DeliverySite" >
+    insert into delivery_site
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="deliveryCode != null" >
+        delivery_code,
+      </if>
+      <if test="deliveryAddress != null" >
+        delivery_address,
+      </if>
+      <if test="operateStatus != null" >
+        operate_status,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="deliveryCode != null" >
+        #{deliveryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryAddress != null" >
+        #{deliveryAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="operateStatus != null" >
+        #{operateStatus,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cyc.pojo.DeliverySite" >
+    update delivery_site
+    <set >
+      <if test="deliveryCode != null" >
+        delivery_code = #{deliveryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryAddress != null" >
+        delivery_address = #{deliveryAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="operateStatus != null" >
+        operate_status = #{operateStatus,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cyc.pojo.DeliverySite" >
+    update delivery_site
+    set delivery_code = #{deliveryCode,jdbcType=VARCHAR},
+      delivery_address = #{deliveryAddress,jdbcType=VARCHAR},
+      operate_status = #{operateStatus,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

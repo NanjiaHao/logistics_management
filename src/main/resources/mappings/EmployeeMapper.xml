@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cyc.dao.EmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.cyc.pojo.Employee" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="delivery_code" property="deliveryCode" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="SMALLINT" />
+    <result column="tele_num" property="teleNum" jdbcType="VARCHAR" />
+    <result column="birth_date" property="birthDate" jdbcType="DATE" />
+    <result column="hiredate" property="hiredate" jdbcType="DATE" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="salary" property="salary" jdbcType="DECIMAL" />
+    <result column="position_type" property="positionType" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, delivery_code, name, user_name, password, gender, tele_num, birth_date, 
+    hiredate, address, salary, position_type, status, createTime, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="getEmpCode" resultType="java.lang.String">
+    select code from employee
+  </select>
+
+  <select id="queryEmployeeCount" resultType="java.lang.Long">
+    select count(1)
+    <include refid="Base_Column_List"/>
+  </select>
+
+  <select id="getEmployeesByParams" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List"/>
+  from employee where status = 1
+  <if test="code != null and code != ''">
+    and code = #{code,jdbcType=VARCHAR} </if>
+  <if test="name != null and name != ''">
+    and name LIKE CONCAT(CONCAT('%',#{name}),'%')
+  </if>
+    order by id DESC limit #{index},#{limit}
+</select>
+
+  <select id="checkEmpLogin" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from employee where status=1
+    <if test="empName != null and empName != ''">
+      and user_name = #{empName,jdbcType=VARCHAR}
+    </if>
+    <if test="password != null and password != ''">
+      and password=#{password,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cyc.pojo.Employee" >
+    insert into employee (id, code, delivery_code, 
+      name, user_name, password, 
+      gender, tele_num, birth_date, 
+      hiredate, address, salary, 
+      position_type, status, createTime, 
+      updateTime)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{deliveryCode,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=SMALLINT}, #{teleNum,jdbcType=VARCHAR}, #{birthDate,jdbcType=DATE}, 
+      #{hiredate,jdbcType=DATE}, #{address,jdbcType=VARCHAR}, #{salary,jdbcType=DECIMAL}, 
+      #{positionType,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cyc.pojo.Employee" >
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="deliveryCode != null" >
+        delivery_code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="teleNum != null" >
+        tele_num,
+      </if>
+      <if test="birthDate != null" >
+        birth_date,
+      </if>
+      <if test="hiredate != null" >
+        hiredate,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="salary != null" >
+        salary,
+      </if>
+      <if test="positionType != null" >
+        position_type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryCode != null" >
+        #{deliveryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=SMALLINT},
+      </if>
+      <if test="teleNum != null" >
+        #{teleNum,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDate != null" >
+        #{birthDate,jdbcType=DATE},
+      </if>
+      <if test="hiredate != null" >
+        #{hiredate,jdbcType=DATE},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null" >
+        #{salary,jdbcType=DECIMAL},
+      </if>
+      <if test="positionType != null" >
+        #{positionType,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="deleteByKey" parameterType="com.cyc.pojo.Employee" >
+    update employee
+    <set >
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cyc.pojo.Employee" >
+    update employee
+    set code = #{code,jdbcType=VARCHAR},
+      delivery_code = #{deliveryCode,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=SMALLINT},
+      tele_num = #{teleNum,jdbcType=VARCHAR},
+      birth_date = #{birthDate,jdbcType=DATE},
+      hiredate = #{hiredate,jdbcType=DATE},
+      address = #{address,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=DECIMAL},
+      position_type = #{positionType,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
